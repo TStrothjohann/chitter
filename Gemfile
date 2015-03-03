@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'datamapper'
-gem 'bcryp'
+gem 'bcrypt'
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'rack-flash3'
@@ -10,6 +10,6 @@ gem 'rack-flash3'
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'capybara/cucumber'
+  gem 'cucumber'
   gem 'database_cleaner'
 end

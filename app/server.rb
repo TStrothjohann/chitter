@@ -7,16 +7,12 @@ require 'dm-validations'
 require './app/data_mapper_setup'
 require 'rack-flash'
   
-
-
   class Chitter < Sinatra::Base
     enable :sessions
     use Rack::Flash
     use Rack::MethodOverride
     register Sinatra::Partial
     set :partial_template_engine, :erb
-   
-
 
   get '/' do
     @messages = Message.all(:order => [ :id.desc ])
@@ -50,9 +46,6 @@ require 'rack-flash'
       erb :'/users/new'
     end
   end
-
- 
-
   post '/sessions' do
 
     user = User.authenticate(
@@ -91,14 +84,12 @@ require 'rack-flash'
     end
   end
 
-
   get '/users/profile/:username' do
     @user = User.first(:username => params[:username])
     @messages = Message.all(:user_id => @user.id)
 
     erb :'/users/profile'
   end
-
 
   helpers do
     def current_user
