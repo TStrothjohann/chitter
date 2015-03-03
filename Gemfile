@@ -6,6 +6,7 @@ gem 'datamapper'
 gem 'bcrypt'
 gem 'dm-validations'
 gem 'dm-timestamps'
+gem 'dm-postgres-adapter'
 gem 'rack-flash3'
 
 group :test do
