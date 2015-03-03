@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.3'
 gem 'sinatra'
+gem 'sinatra-partial'
 gem 'datamapper'
 gem 'bcrypt'
 gem 'dm-validations'
