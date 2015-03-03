@@ -2,7 +2,11 @@
   <% if @messages %>
     <ul id="stream">
     <% @messages.each do |message|%>
-      <li class="message"><%= message.text %></li>
+      <li class="message">
+        <article><%= message.text %></article>
+        <a href="/users/profile/<%= message.author.username %>"><author><%= message.author.username %></author></a>
+        <time><%= message.created_at %></time>trun
+      </li>
     <% end %>
     </ul>
   <% end %>

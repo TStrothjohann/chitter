@@ -5,11 +5,12 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String, :length => 0..30
+  property :username, String, :length => 0..30, unique_index: true
   property :name, Text
-  property :email, Text
+  property :email, Text, format: :email_address, :message => "This doesn't look like an e-mail address."
   property :password_digest, Text
   has n, :messages, :through => Resource
+
 
   attr_reader :password
   attr_accessor :password_confirmation

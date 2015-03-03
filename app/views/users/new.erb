@@ -3,22 +3,22 @@
     <legend>Please sign up to use chitter</legend>
     <p>
       <label>Name</label>
-      <input type="text" name="name">
+      <input type="text" name="name" value="<%= @user.name %>">
     </p>
     <p>
-      <label>email</label>
-      <input type="email" name="email">
+      <label>Email</label>
+      <input type="text" name="email" value="<%= @user.email %>">
     </p>
     <p>
-      <label>username</label>
-      <input type="text" name="username">
+      <label>User name</label>
+      <input type="text" name="username" value="<%= @user.username %>">
     </p>
     <p>
-      <label>password</label>
-      <input type="password" name="password">
+      <label>Password</label>
+      <input type="password" name="password" >
     </p>
     <p>
-      <label>confirm your password, please</label>
+      <label>Confirm your password, please</label>
       <input type="password" name="password_confirmation">
     </p>
     <input type="submit" name="signup" value="signup">

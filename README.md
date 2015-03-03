@@ -14,7 +14,6 @@ Features:
 
 
 ToDo>
-- Presentation of tweets (creation into db works fine)
 - layout
 - Error when peep is too long
 - rack-messages

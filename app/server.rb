@@ -19,11 +19,12 @@ require 'rack-flash'
 
 
   get '/' do
-    @messages = Message.all
+    @messages = Message.all(:order => [ :id.desc ])
     erb :index
   end
     
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
@@ -45,7 +46,7 @@ require 'rack-flash'
       session[:user_id] = @user.id
       redirect('/')
     else
-      flash[:errors]
+      flash[:errors] = @user.errors.full_messages
       erb :'/users/new'
     end
   end
@@ -61,17 +62,17 @@ require 'rack-flash'
 
     if user
       session[:user_id] = user.id
-      erb :index
+      redirect('/')
     else
-      flash[:errors] = ["ups"]
-      redirect('/sessions/new')
+      flash[:errors] = ["Chitter doesn't know this combination of password, email or username."]
+      erb :'/sessions/new'
     end
   end
 
   delete '/sessions' do
     session.clear
-    flash[:notice] = "bis bald!"
-    erb :index
+    flash[:notice] = "<p id='alert'>Goodbye!</p>"
+    redirect('/')
   end
 
   get '/messages/new' do
@@ -80,11 +81,22 @@ require 'rack-flash'
 
   post '/messages/new' do
     user = User.get(session[:user_id])
-    message = Message.new(:user => user)
-    #Maybe the key is user_id...
+    message = Message.new(:user_id => user.id)
     message.text = params[:text]
-    message.save
-    erb :index
+    if message.save
+       redirect('/') 
+    else
+      flash[:errors] = message.errors.full_messages
+      erb :'/messages/new'
+    end
+  end
+
+
+  get '/users/profile/:username' do
+    @user = User.first(:username => params[:username])
+    @messages = Message.all(:user_id => @user.id)
+
+    erb :'/users/profile'
   end
 
 
@@ -92,12 +104,8 @@ require 'rack-flash'
     def current_user
       if session[:user_id]
         @current_user = User.get(session[:user_id]).username
-      
       end
     end
   end
-
-
-
 
 end

@@ -1,0 +1,15 @@
+<h1><%= @user.name %></h1>
+
+
+<% if @messages %>
+    
+    <ul id="stream">
+      <li id="stream-header">Messages by <%= @user.username %>:</li>
+      <% @messages.each do |message| %>
+      <li class="message"><%= message.text %></li>
+      <% end %>
+    </ul>
+<% else %>
+  <p><%= @user.name %> has not yet published any messages.</p>
+  
+<% end %>

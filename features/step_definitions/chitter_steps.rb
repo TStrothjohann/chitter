@@ -22,6 +22,7 @@ ENV['RACK_ENV'] = 'test'
     expect(page).to have_content("Welcome, TStrothjohann!")
   end
 
+#===========================================================================#
 
   Given(/^I have an account already$/) do
     sign_up
@@ -42,6 +43,10 @@ ENV['RACK_ENV'] = 'test'
     expect(page).to have_content("Oh, hello! This is a test tweet")
   end
 
+#===========================================================================#
+
+
+#===========================================================================#
 
 
   def sign_in(username, password)
