@@ -7,6 +7,7 @@ class Message
   property :id, Serial
   property :text, Text, :length => 1..140, :message => "Messages can only be 140 characters long."
   property :created_at, DateTime
+  
   belongs_to :user
 
 

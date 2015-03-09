@@ -9,7 +9,8 @@ class User
   property :name, Text
   property :email, Text, format: :email_address, :message => "This doesn't look like an e-mail address."
   property :password_digest, Text
-  has n, :messages, :through => Resource
+
+  has n, :messages
 
 
   attr_reader :password
@@ -36,6 +37,10 @@ class User
       nil
     end
   end
+
+  # def add_message(text)
+  #   messages.new(text)
+  # end
 
 
 end

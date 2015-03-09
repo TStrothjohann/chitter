@@ -1,7 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/partial'
-require './app/models/user'
-require './app/models/message'
 require 'data_mapper'
 require 'dm-validations'
 require './app/data_mapper_setup'
@@ -76,6 +74,7 @@ require 'rack-flash'
     user = User.get(session[:user_id])
     message = Message.new(:user_id => user.id)
     message.text = params[:text]
+    # message = user.add_message(text: params[:text])
     if message.save
        redirect('/') 
     else
