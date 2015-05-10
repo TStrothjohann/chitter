@@ -1,7 +1,8 @@
 Chitter Challenge
 =================
 
-Chitter is a little Twitter clone that allows users to post messages to a public stream.
+Chitter is a simple Twitter clone that allows users to post messages to a public stream. It is written in Ruby following object oriented design principals. It is running on a slim Sinatra server and tested behaviour driven with Cucumber. 
+[Demo on Heroku](https://the-new-twitter.herokuapp.com/)
 
 Features:
 -------
@@ -16,6 +17,6 @@ Notes:
 ------
 
 * To secure the passwords they are stored encrypted by bcrypt in the database.
-* I have used data mapper and postgres to save the data.
-* You only can send messages if you are logged in.
-* I have included a simple profile page
+* I have used data mapper and PostgreSQL to save the data.
+* You can only send messages if you are logged in.
+* I have included a basic profile page.
